@@ -2,6 +2,8 @@ on:
   push:
     branches:
       - main
+    tags:
+      - 'v*'
 
 jobs:
   semantic_versioning:
@@ -19,7 +21,8 @@ jobs:
     - name: upload zip to release
       uses: svenstaro/upload-release-action@v2
       with: 
-        file: ./mac-app.zip
+        file: mac-app.zip
         asset_name: mac-app.zip
+        tags: ${{ github.ref_name }}
         overwrite: true
         body: "release zip"
