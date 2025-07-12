@@ -11,4 +11,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: list directory
-      run:  ls
+      run:  | 
+        apt install zip
+        zip boo.txt
+        ls
