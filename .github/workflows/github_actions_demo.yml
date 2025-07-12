@@ -3,7 +3,7 @@ on:
     branches:
       - main
     tags:
-      - 'v*'
+      - '*'
 
 jobs:
   semantic_versioning:
@@ -17,18 +17,13 @@ jobs:
         sudo apt-get install zip
         zip -r mac-app.zip mac-app
         ls
-    - name: Create GitHub Release using gh CLI (if not exists)
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: |
-        TAG=${{ github.ref_name }}
-        gh release view "$TAG" || gh release create "$TAG" --title "Release $TAG" --notes "Auto-created release"
 
-    - name: upload zip to release
+    - name: Upload binaries to release
       uses: svenstaro/upload-release-action@v2
-      with: 
+      with:
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
         file: mac-app.zip
         asset_name: mac-app.zip
-        tag: ${{ github.ref_name }}
+        tag: ${{ github.ref }}
         overwrite: true
-        body: "release zip"
+        body: "This is my release text"
