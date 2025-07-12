@@ -13,5 +13,5 @@ jobs:
     - name: list directory
       run:  | 
         sudo apt-get install zip
-        zip mac-app
+        zip -r mac-app.zip mac-app
         ls
