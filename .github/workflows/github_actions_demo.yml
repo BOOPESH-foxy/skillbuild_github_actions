@@ -17,6 +17,12 @@ jobs:
         sudo apt-get install zip
         zip -r mac-app.zip mac-app
         ls
+    - name: Create GitHub Release using gh CLI (if not exists)
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        TAG=${{ github.ref_name }}
+        gh release view "$TAG" || gh release create "$TAG" --title "Release $TAG" --notes "Auto-created release"
 
     - name: upload zip to release
       uses: svenstaro/upload-release-action@v2
