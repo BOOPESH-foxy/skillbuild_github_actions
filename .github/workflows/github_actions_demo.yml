@@ -13,5 +13,5 @@ jobs:
     - name: list directory
       run:  | 
         sudo apt-get install zip
-        zip boo.txt
+        zip mac-app
         ls
