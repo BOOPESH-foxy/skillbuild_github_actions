@@ -15,3 +15,10 @@ jobs:
         sudo apt-get install zip
         zip -r mac-app.zip mac-app
         ls
+
+    - name: upload zip to release
+      uses: svenstaro/upload-release-action@v2
+      with: 
+        asset_name: mac-app.zip
+        overwrite: true
+        body: "release zip"
