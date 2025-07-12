@@ -23,6 +23,6 @@ jobs:
       with: 
         file: mac-app.zip
         asset_name: mac-app.zip
-        tags: ${{ github.ref_name }}
+        tag: ${{ github.ref_name }}
         overwrite: true
         body: "release zip"
