@@ -3,10 +3,9 @@ run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 
 on:
   push:
-    branches:
-      - '*'
+
     paths:
-      - '*'
+      - '**.py'
 
 jobs:
   Explore-GitHub-Actions:
