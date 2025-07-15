@@ -5,7 +5,7 @@ on:
   push:
 
     paths:
-      - '**.py'
+      - '**.yml'
 
 jobs:
   Explore-GitHub-Actions:
