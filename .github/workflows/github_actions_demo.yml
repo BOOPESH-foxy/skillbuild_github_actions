@@ -3,9 +3,10 @@ run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 
 on:
   push:
-
     paths:
       - 'mac-app/**'
+    paths-ignore:
+      - '*.txt'
 
 jobs:
   Explore-GitHub-Actions:
