@@ -12,5 +12,5 @@ jobs:
     steps:
       - run: echo "🎉 The job was automatically triggered on branch foo/bar"
       - run: echo "🍏 This job's status is ${{ job.status }}."
-      - run: echo "foo/bar branch"
+      - run: echo "foo/bar/master branch"
 
