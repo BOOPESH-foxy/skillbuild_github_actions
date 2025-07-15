@@ -5,7 +5,7 @@ on:
   push:
     paths:
       - 'mac-app/**'
-      # - '*.txt'
+      - '!*.txt'
 
 jobs:
   Explore-GitHub-Actions:
