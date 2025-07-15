@@ -4,8 +4,8 @@ run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on:
   push:
     paths:
-      - 'mac-app/**'
       - '!*.txt'
+      - 'mac-app/**'
 
 jobs:
   Explore-GitHub-Actions:
