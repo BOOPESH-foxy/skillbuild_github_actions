@@ -8,14 +8,12 @@ on:
       - '!mac-app/*.txt'
 
 jobs:
-  Explore-GitHub-Actions:
+  job1:
     runs-on: ubuntu-latest
     steps:
       - run: echo "🎉 The job was automatically triggered by {{github.actor}}"
 
-
-jobs:
-  second-job:
+  job2:
     runs-on:
       steps:
         - run: echo "hi {{github.actor}} this is another job"
