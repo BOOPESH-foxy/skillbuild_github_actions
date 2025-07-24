@@ -18,8 +18,8 @@ jobs:
       - name: process exit
         run: exit 1
 
-      - name: if success
-        if: ${{ failure () }}
+      - name: if failed
+        if: ${{ always () }}
         run: echo "prev step failed"
 
 
