@@ -10,8 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: process exit
-        run: echo "::add-mask::boo"
-        run:  | 
+        run:  |  
+          echo "::add-mask::boo"
           echo "boo"
           echo "boo"
           echo "boo"
@@ -22,5 +22,6 @@ jobs:
     if: ${{ success() }}
     runs-on: ubuntu-latest
     steps:
-      - run: echo "::add-mask::github.actor" 
-      - run: echo "hi ${{github.actor}} this is another job"
+      - run: | 
+            echo "::add-mask::github.actor" 
+            echo "hi ${{github.actor}} this is another job"
