@@ -1,27 +1,17 @@
-name: GitHub Actions Demo
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-
-on:
-  push:
-    paths-ignore:
-      - 'mac-app/**'
-      - '!mac-app/*.txt'
-env:  
-  name: event-trigger
-  timeout:  5
-
+name: build
+on: push
 jobs:
   job1:
-    name: print-trigger
     runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
-      - run: echo "🎉 The job was automatically triggered by ${{github.actor}}"
-      - run: echo "${{fromJSON(env.name)}}"
-
+      - id: set-matrix
+        run: echo "matrix={\"include\":[{\"project\":\"foo\",\"config\":\"Debug\"},{\"project\":\"bar\",\"config\":\"Release\"}]}" >> $GITHUB_OUTPUT
   job2:
-    needs:  job1
-    name: print-job
+    needs: job1
     runs-on: ubuntu-latest
+    strategy:
+      matrix: ${{ fromJSON(needs.job1.outputs.matrix) }}
     steps:
-      - run: echo "hi ${{github.actor}} this is another job"
-      - run: echo "${{fromJSON(env.timeout)}}"
+      - run: echo "Matrix - Project ${{ matrix.project }}, Config ${{ matrix.config }}"
