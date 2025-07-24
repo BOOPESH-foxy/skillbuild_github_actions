@@ -15,12 +15,17 @@ jobs:
     name: print-trigger
     runs-on: ubuntu-latest
     steps:
-      # - run: echo "🎉 The job was automatically triggered by ${{github.actor}}"
-      - run: exit 0
+      - name: process exit
+        run: exit 1
 
-  job2:
-    name: print-job
-    if: ${{ success() }}
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "hi ${{github.actor}} this is another job"
+      - name: if success
+        if: ${{ success () }}
+        run: echo "prev step succeeded"
+
+
+  # job2:
+  #   name: print-job
+  #   if: ${{ success() }}
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - run: echo "hi ${{github.actor}} this is another job"
