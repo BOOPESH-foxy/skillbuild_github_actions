@@ -9,11 +9,13 @@ on:
 
 jobs:
   job1:
+    name: print-trigger
     runs-on: ubuntu-latest
     steps:
       - run: echo "🎉 The job was automatically triggered by ${{github.actor}}"
 
   job2:
+    name: print-job
     runs-on: ubuntu-latest
     steps:
       - run: echo "hi ${{github.actor}} this is another job"
