@@ -4,6 +4,9 @@ run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on:
   push
 
+env: 
+  name: "boopesh"
+  actor: ${{ github.actor }}
 jobs:
   job1:
     name: print-trigger
@@ -11,11 +14,11 @@ jobs:
     steps:
       - name: process exit
         run:  |  
-          echo "::add-mask::boo"
+          echo "::add-mask::name"
           echo "boo"
+          echo "boopesh"
           echo "boo"
-          echo "boo"
-          echo "boo"
+          echo "boopesh"
 
   job2:
     name: print-job
@@ -23,5 +26,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: | 
-            echo "::add-mask::${{ github.actor }}" 
+            echo "::add-mask::$actor" 
             echo "hi ${{github.actor}} this is another job"
