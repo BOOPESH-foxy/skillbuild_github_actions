@@ -14,7 +14,7 @@ jobs:
     steps:
       - name: process exit
         run:  |  
-          echo "::add-mask::name"
+          echo "::add-mask::$name"
           echo "boo"
           echo "boopesh"
           echo "boo"
