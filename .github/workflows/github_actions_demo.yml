@@ -23,5 +23,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: | 
-            echo "::add-mask::github.actor" 
+            echo "::add-mask::${{ github.actor }}" 
             echo "hi ${{github.actor}} this is another job"
