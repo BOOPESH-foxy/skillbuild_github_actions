@@ -11,7 +11,11 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "🎉 The job was automatically triggered on branch foo/bar"
-      - run: echo "🍏 This job's status is ${{ job.status }}."
-      - run: echo "foo/bar/master branch"
+      - run: echo "🎉 The job was automatically triggered by {{github.actor}}"
 
+
+jobs:
+  second-job:
+    runs-on:
+      steps:
+        - run: echo "hi {{github.actor}} this is another job"
