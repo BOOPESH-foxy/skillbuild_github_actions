@@ -19,8 +19,8 @@ jobs:
         run: exit 1
 
       - name: if success
-        if: ${{ success () }}
-        run: echo "prev step succeeded"
+        if: ${{ failure () }}
+        run: echo "prev step failed"
 
 
   # job2:
