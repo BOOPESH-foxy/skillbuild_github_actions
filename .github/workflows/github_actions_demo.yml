@@ -6,13 +6,17 @@ on:
     paths-ignore:
       - 'mac-app/**'
       - '!mac-app/*.txt'
+env:  
+  name: event-trigger
+  timeout:  5
 
 jobs:
   job1:
     name: print-trigger
     runs-on: ubuntu-latest
     steps:
-      - run: echo "🎉 The job was automatically triggered by ${{github.actor}}"
+      - run: echo "🎉 The job was automatically triggered by ${{github.actor}}
+      - run: echo "json- ${{fromJSON(env.name)}}"
 
   job2:
     needs:  job1
@@ -20,3 +24,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "hi ${{github.actor}} this is another job"
+      - run: echo "json-  ${{fromJSON(env.timeout)}}"
