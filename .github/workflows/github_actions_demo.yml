@@ -15,9 +15,8 @@ jobs:
     name: print-trigger
     runs-on: ubuntu-latest
     steps:
-      - run: echo "🎉 The job was automatically triggered by ${{github.actor}}"
-      - run: echo "${{fromJSON(env.name)}}"
-      - run: exit 1
+      # - run: echo "🎉 The job was automatically triggered by ${{github.actor}}"
+      - run: exit 0
 
   job2:
     if: ${{success()}}
@@ -25,4 +24,3 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "hi ${{github.actor}} this is another job"
-      - run: echo "${{fromJSON(env.timeout)}}"
