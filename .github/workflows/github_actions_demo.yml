@@ -15,7 +15,7 @@ jobs:
     name: print-trigger
     runs-on: ubuntu-latest
     steps:
-      - run: echo "🎉 The job was automatically triggered by ${{github.actor}}
+      - run: echo "🎉 The job was automatically triggered by ${{github.actor}}"
       - run: echo "json- ${{fromJSON(env.name)}}"
 
   job2:
