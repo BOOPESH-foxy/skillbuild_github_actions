@@ -2,13 +2,7 @@ name: GitHub Actions Demo
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 
 on:
-  push:
-    paths-ignore:
-      - 'mac-app/**'
-      - '!mac-app/*.txt'
-env:  
-  name: event-trigger
-  timeout:  5
+  push
 
 jobs:
   job1:
@@ -16,16 +10,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: process exit
-        run: echo "boo"
+        run: echo "::add-mask::boo"
+        run:  | 
+          echo "boo"
+          echo "boo"
+          echo "boo"
+          echo "boo"
 
-      - name: if failed
-        if: ${{ always () }}
-        run: echo "prev step failed"
-
-
-  # job2:
-  #   name: print-job
-  #   if: ${{ success() }}
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - run: echo "hi ${{github.actor}} this is another job"
+  job2:
+    name: print-job
+    if: ${{ success() }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "::add-mask::github.actor" 
+      - run: echo "hi ${{github.actor}} this is another job"
