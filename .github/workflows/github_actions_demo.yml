@@ -5,7 +5,7 @@ on:
   push
 
 env: 
-  name: "boopesh"
+  secret-val:112388 
   actor: ${{ github.actor }}
 jobs:
   job1:
@@ -14,12 +14,12 @@ jobs:
       - id: set-output-secret
         name: set-secret
         run: |
-          secret=112388
+          secret=$secret-val
           echo "::add-mask::$secret"
           echo "secret-num=$secret" >> "$GITHUB_OUTPUT"
           
       - name: use-output
-        run:  echo "steps.set-output-secret.outputs.secret-num"
+        run:  echo "${{ steps.set-output-secret.outputs.secret-num }}"
 
   # job2:
   #   name: print-job
