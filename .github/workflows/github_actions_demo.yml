@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: process exit
-        run: exit 1
+        run: echo "boo"
 
       - name: if failed
         if: ${{ always () }}
