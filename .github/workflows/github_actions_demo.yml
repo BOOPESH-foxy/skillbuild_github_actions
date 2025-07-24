@@ -11,9 +11,9 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "🎉 The job was automatically triggered by {{github.actor}}"
+      - run: echo "🎉 The job was automatically triggered by ${{github.actor}}"
 
   job2:
-    runs-on:
-      steps:
-        - run: echo "hi {{github.actor}} this is another job"
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "hi ${{github.actor}} this is another job"
