@@ -15,7 +15,6 @@ jobs:
       - run: echo "🎉 The job was automatically triggered by ${{github.actor}}"
 
   job2:
-    needs:  job1
     name: print-job
     runs-on: ubuntu-latest
     steps:
