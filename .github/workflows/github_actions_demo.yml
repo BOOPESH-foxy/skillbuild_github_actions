@@ -1,31 +1,17 @@
 name: GitHub Actions Demo
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 
-on:
-  push
-
-env: 
-  secret-val:112388 
-  actor: ${{ github.actor }}
+on: push
 jobs:
-  job1:
+  generate-a-secret-output:
     runs-on: ubuntu-latest
     steps:
-      - id: set-output-secret
-        name: set-secret
+      - id: sets-a-secret
+        name: Generate, mask, and output a secret
         run: |
-          secret=$secret-val
-          echo "::add-mask::$secret"
-          echo "secret-num=$secret" >> "$GITHUB_OUTPUT"
-          
-      - name: use-output
-        run:  echo "${{ steps.set-output-secret.outputs.secret-num }}"
-
-  # job2:
-  #   name: print-job
-  #   if: ${{ success() }}
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - run: | 
-  #           echo "::add-mask::$actor" 
-  #           echo "hi ${{github.actor}} this is another job"
+          the_secret=$((RANDOM))
+          echo "::add-mask::$the_secret"
+          echo "secret-number=$the_secret" >> "$GITHUB_OUTPUT"
+      - name: Use that secret output (protected by a mask)
+        run: |
+          echo "the secret number is ${{ steps.sets-a-secret.outputs.secret-number }}"
