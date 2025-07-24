@@ -19,8 +19,8 @@ jobs:
       - run: exit 0
 
   job2:
-    if: ${{success()}}
     name: print-job
+    if: ${{ success() }}
     runs-on: ubuntu-latest
     steps:
       - run: echo "hi ${{github.actor}} this is another job"
