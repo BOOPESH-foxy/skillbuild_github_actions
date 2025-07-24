@@ -9,22 +9,23 @@ env:
   actor: ${{ github.actor }}
 jobs:
   job1:
-    name: print-trigger
     runs-on: ubuntu-latest
     steps:
-      - name: process exit
-        run:  |  
-          echo "::add-mask::$name"
-          echo "boo"
-          echo "boopesh"
-          echo "boo"
-          echo "boopesh"
+      - id: set-output-secret
+        name: set-secret
+        run: |
+          secret=112388
+          echo "::add-mask::$secret"
+          echo "secret-num=$secret" >> "$GITHUB_OUTPUT"
+          
+      - name: use-output
+        run:  echo "steps.set-output-secret.outputs.secret-num"
 
-  job2:
-    name: print-job
-    if: ${{ success() }}
-    runs-on: ubuntu-latest
-    steps:
-      - run: | 
-            echo "::add-mask::$actor" 
-            echo "hi ${{github.actor}} this is another job"
+  # job2:
+  #   name: print-job
+  #   if: ${{ success() }}
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - run: | 
+  #           echo "::add-mask::$actor" 
+  #           echo "hi ${{github.actor}} this is another job"
