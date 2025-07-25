@@ -8,12 +8,7 @@ jobs:
   job1:
     runs-on:  ubuntu-latest
     steps:
-      - name: set env
+      - name: functions
         id: step_one
         run:  | 
-          echo "NAME=BOO"  >> $GITHUB_ENV
-
-      - name: use env
-        id: step_two
-        run:  |
-          echo "$NAME"
+          echo "startsWith('hello','he')" 
