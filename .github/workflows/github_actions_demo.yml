@@ -1,16 +1,19 @@
 name: GitHub Actions Demo
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 
-on: push
+on: 
+  push
 
 jobs:
-  set_env:
-    runs-on:  ubuntu-latest
-    steps:  
-      - name: set set_env
-        run:  |
-          echo "MY_ENV_VAR=9788" >> $GITHUB_ENV
-          echo "::add-mask::9788"
+  
+  steps:
 
-      - name: use env
-        run:  echo "the value of ENV variable is $MY_ENV_VAR"
+    - name: set env
+      id: step_one
+      run:  | 
+        echo "$NAME=BOO"  >> "$GITHUB_ENV"
+
+    - name: use env
+      id: step_two
+      run:  |
+        echo "$NAME"
