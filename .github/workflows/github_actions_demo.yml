@@ -10,5 +10,4 @@ jobs:
     steps:
       - name: functions
         id: step_one
-        run:  | 
-          echo "startsWith('hello','he')" 
+        run: startsWith('hello','he')
