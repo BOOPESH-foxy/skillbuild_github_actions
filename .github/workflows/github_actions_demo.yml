@@ -5,15 +5,14 @@ on:
   push
 
 jobs:
-  
-  steps:
+  job1:
+    steps:
+      - name: set env
+        id: step_one
+        run:  | 
+          echo "$NAME=BOO"  >> "$GITHUB_ENV"
 
-    - name: set env
-      id: step_one
-      run:  | 
-        echo "$NAME=BOO"  >> "$GITHUB_ENV"
-
-    - name: use env
-      id: step_two
-      run:  |
-        echo "$NAME"
+      - name: use env
+        id: step_two
+        run:  |
+          echo "$NAME"
