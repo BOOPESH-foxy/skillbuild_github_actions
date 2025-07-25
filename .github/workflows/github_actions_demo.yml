@@ -10,4 +10,6 @@ jobs:
     steps:
       - name: functions
         id: step_one
-        run: startsWith('hello','he')
+        if: ${{ startsWith('hello','he') }}
+        run:  |
+          echo "hey boo"
