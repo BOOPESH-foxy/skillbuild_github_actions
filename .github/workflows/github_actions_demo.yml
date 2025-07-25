@@ -11,7 +11,7 @@ jobs:
       - name: set env
         id: step_one
         run:  | 
-          echo "$NAME=BOO"  >> "$GITHUB_ENV"
+          echo "NAME=BOO"  >> $GITHUB_ENV
 
       - name: use env
         id: step_two
