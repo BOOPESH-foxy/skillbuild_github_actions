@@ -10,7 +10,7 @@ jobs:
       - name: set set_env
         run:  |
           echo "MY_ENV_VAR=9788" >> $GITHUB_ENV
-          echo "::add-mask::$MY_ENV_VAR"
+          echo "::add-mask::9788"
 
       - name: use env
         run:  echo "the value of ENV variable is $MY_ENV_VAR"
