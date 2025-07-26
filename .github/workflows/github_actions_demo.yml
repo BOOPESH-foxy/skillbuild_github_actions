@@ -11,4 +11,4 @@ jobs:
       - name: Dump the context
         env:  
           JOB_CONTEXT: ${{ toJson(github) }}
-        run:  echo  "$JOB_CONTEXT"
+        run:  echo  "$JOB_CONTEXT.repository_owner"
