@@ -10,5 +10,5 @@ jobs:
     steps:  
       - name: Dump the context
         env:  
-          JOB_CONTEXT: ${{ toJson(github.repository_owner) }}
+          JOB_CONTEXT: ${{ toJson(matrix) }}
         run:  echo  "$JOB_CONTEXT"
