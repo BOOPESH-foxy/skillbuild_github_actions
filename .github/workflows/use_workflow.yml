@@ -8,5 +8,6 @@ jobs:
     uses: ./.github/workflows/reusable_workflow.yaml
     with:
       environment: production
+      lead: boo-foxy
     secrets:
       My_secret: ${{ secrets.My_secret }}

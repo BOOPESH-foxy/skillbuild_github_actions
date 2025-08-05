@@ -7,6 +7,11 @@ on:
         description:  "Development"
         required: True
         type: string
+      
+      lead:
+        description: "name of the lead"
+        required: True
+        type: string
 
     secrets:
       My_secret:
@@ -17,7 +22,9 @@ jobs:
     runs-on:  ubuntu-latest
     steps:
       - name:  Print inputs
-        run:  echo "Deploying to ${{ inputs.environment }}"
+        run: |
+          echo "Deploying to ${{ inputs.environment }}"
+          echo "lead by ${{ inputs.lead }}"
 
       - name: use secret
         run: echo "secret length is ${{ secrets.My_secret }}"
