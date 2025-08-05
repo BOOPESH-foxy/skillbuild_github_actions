@@ -8,5 +8,5 @@ jobs:
     uses: ./.github/workflows/reusable_workflow.yaml
     with:
       environment: production
-      secrets:
-        My_secret: ${{ secrets.My_secret }}
+    secrets:
+      My_secret: ${{ secrets.My_secret }}
