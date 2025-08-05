@@ -8,9 +8,9 @@ on:
         required: True
         type: string
 
-      secrets:
-        My_secret:
-          required: True
+    secrets:
+      My_secret:
+        required: True
 
 jobs: 
   deploy:
@@ -20,4 +20,4 @@ jobs:
         run:  echo "Deploying to ${{ inputs.environment }}"
 
       - name: use secret
-        run: echo "secret length is ${{ secrets.My_secret | length }}"
+        run: echo "secret length is ${{ secrets.My_secret }}"
