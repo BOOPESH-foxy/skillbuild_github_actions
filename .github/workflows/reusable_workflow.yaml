@@ -1,0 +1,23 @@
+name: Reusable workflow
+
+on: 
+  workflow_call:
+    inputs:
+      environment:
+        description:  "Development"
+        required: True
+        type: string
+
+      secrets:
+        My_secret:
+          required: True
+
+jobs: 
+  deploy:
+    runs-on:  ubuntu-latest
+    steps:
+      - name:  Print inputs
+        run:  echo "Deploying to ${{ inputs.environment }}"
+
+      - name: use secret
+        run: echo "secret length is ${{ secrets.My_secret | length }}"
